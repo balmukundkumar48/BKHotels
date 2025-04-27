@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Hotel</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <header>
+        <h1>BK Hotel</h1>
+        <nav>
+            <ul>
+                <li><a href="project.html">Home</a></li>
+                <li><a href="projectsignup.html">Sign Up</a></li>
+                <li><a href="projectlogin.html">Login</a></li>
+                <li><a href="booknow.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Our Hotel</h2>
+        <p>Your comfort is our priority. Enjoy a luxurious stay with us!</p>
+    </section>
+
+    <section id="rooms">
+        <h2>Our Rooms</h2>
+        <div class="room">
+            <img src="deluxeroom.jpg" alt="Deluxe Room">
+            <h3>Deluxe Room</h3>
+            <p>Price: $200 5 night 4 days</p>
+            <p>A spacious room with a king-size bed and a beautiful view.</p>
+        </div>
+        <div class="room">
+            <img src="standardroom.jpg" alt="Standard Room">
+            <h3>Standard Room</h3>
+            <p>Price: $150 5 night 4 days</p>
+            <p>A cozy room with all the essential amenities.</p>
+        </div>
+        <div class="room">
+            <img src="suite.jpg" alt="Suite">
+            <h3>Suite</h3>
+            <p>Price: $300 5 night and 4 days</p>
+            <p>A luxurious suite with a separate living area and premium services.</p>
+        </div>
+        <div class="room"> 
+            <img src="dormatory.jpg" alt="Dormatory Rooms">
+            <h3> Dormatory Rooms</h3>
+            <p> Price: $ 50 5 night 4 days</p>
+            <p> A affordable as well as luxurious rooms so that middle class people can also Enjoy.</p> 
+        </div>
+        <div class="room">
+          <img src="maharaja.jpg" alt="Maharaja Room">
+          <h3> MAHARAJA ROOMS</h3>
+          <p> Price: $ 350 5 nights and 4 days</p> 
+          <p> A luxurious Indian King style rooms.</p>
+        </div>
+
+        <div class="room">
+          <img src="sahimaharaja.jpg" alt="Shahi Maharaja Room">
+          <h3> SAHI MAHARAJA ROOMS</h3>
+          <p> Price: $500 5 nights and 4 days</p>
+          <p> A Royal Indian Sahi King style rooms which gives you a shahi vibe after staying in it .</p>
+        </div>
+
+
+    </section>
+
+    <!-- New Games Section -->
+    <section id="games">
+        <h2>Games & Activities</h2>
+        <div class="games">
+            <div class="game">
+                <img src="cards1.jpg" alt="Cards Game">
+                <h3>Cards</h3>
+                <p>Enjoy fun card games with family and friends.</p>
+            </div>
+            <div class="game">
+                <img src="cricket.jpg" alt="Cricket">
+                <h3>Cricket</h3>
+                <p>Play cricket matches in our open field.</p>
+            </div>
+            <div class="game">
+                <img src="poolgame.jpg" alt="Pool Table">
+                <h3>Pool</h3>
+                <p>Challenge your friends to a game of pool.</p>
+            </div>
+            <div class="game">
+                <img src="swimming.jpg" alt="Swimming Pool">
+                <h3>Swimming</h3>
+                <p>Relax and swim in our luxurious pool area.</p>
+            </div>
+            <div class="game">
+                <img src="gym.jpg" alt="Gym">
+                <h3>Gym</h3>
+                <p>Stay fit with our state-of-the-art gym facilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="exterior.jpg" alt="Hotel Exterior">
+                <h3>Hotel Exterior</h3>
+                <p>Experience the grandeur of our hotel’s beautiful exterior.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="lobby.jpg" alt="Lobby">
+                <h3>Lobby</h3>
+                <p>Relax in our elegant and welcoming hotel lobby.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="pool.jpg" alt="Pool">
+                <h3>Swimming Pool</h3>
+                <p>Enjoy a refreshing swim in our luxurious pool.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="restaurent.jpg" alt="Restaurant">
+                <h3>Restaurant</h3>
+                <p>Delight in a variety of gourmet dishes at our restaurant.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="parking.jpg" alt="Parking Lot">
+                <h3>Parking Area</h3>
+                <p>Safe and spacious parking available for all our guests.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="terrace1.jpg" alt="Terrace">
+                <h3>Terrace</h3>
+                <p>Relax and enjoy stunning views from our beautiful terrace.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Our Hotel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth Scroll for Navigation
+        const links = document.querySelectorAll('nav ul li a');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in all the fields.');
+                e.preventDefault();
+            } else {
+                alert('Thank you for your message! We will get back to you soon.');
+            }
+        });
+
+        // Image Modal for Gallery (only if modal HTML is added)
+        const galleryImages = document.querySelectorAll('.gallery img');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const caption = document.getElementById('caption');
+        const closeModal = document.getElementById('closeModal');
+
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                if (modal && modalImg && caption) {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    caption.textContent = this.alt;
+                }
+            });
+        });
+
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                modal.style.display = "none";
+            });
+        }
+
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>  add some high level of styling and animation  using css and high level of validation using javascript

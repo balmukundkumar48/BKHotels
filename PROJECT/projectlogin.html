@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - BK Hotel</title>
+
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: gradientMove 15s ease infinite alternate;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    header {
+      background: #2d3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      background: #6dd5ed;
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      transition: 0.4s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+
+    .login-card {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 450px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .login-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.4);
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2d3e50;
+      font-weight: 700;
+      font-size: 2em;
+    }
+
+    .form-input {
+      margin-bottom: 20px;
+    }
+
+    .form-input label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .form-input input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      transition: all 0.3s ease;
+      background: #f9f9f9;
+    }
+
+    .form-input input:focus {
+      border-color: #2193b0;
+      background: #fff;
+      box-shadow: 0 0 8px rgba(33, 147, 176, 0.4);
+      outline: none;
+    }
+
+    .captcha {
+      margin-bottom: 20px;
+    }
+
+    .captcha label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .captcha .preview {
+      background: #f4f4f4;
+      padding: 12px 20px;
+      font-size: 1.5em;
+      display: flex;
+      justify-content: center;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      user-select: none;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+      font-weight: bold;
+    }
+
+    .captcha-refresh {
+      background: linear-gradient(135deg, #ff5722, #ff7043);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      transition: background 0.4s;
+    }
+
+    .captcha-refresh:hover {
+      background: linear-gradient(135deg, #e64a19, #ff5722);
+    }
+
+    #login-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.4s;
+      margin-top: 10px;
+    }
+
+    #login-btn:hover {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+    }
+
+    footer {
+      background-color: #2d3e50;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      animation: slideUp 1s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(100%); opacity: 0;}
+      100% { transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>BK Hotel</h1>
+    <nav>
+      <ul>
+        <li><a href="project.html">Home</a></li>
+        <li><a href="projectsignup.html">Sign Up</a></li>
+        <li><a href="projectlogin.html">Login</a></li>
+        <li><a href="booknow.html">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="login-card">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-input">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-input">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-input">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+
+        <div class="captcha">
+          <label for="captcha-input">Enter Captcha:</label>
+          <div class="preview"></div>
+          <input type="text" id="captcha-input" required>
+          <button type="button" class="captcha-refresh">Refresh Captcha</button>
+        </div>
+
+        <button type="submit" id="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BK Hotel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function() {
+      const fonts = ["cursive", "sans-serif", "serif", "monospace"];
+      let captchaValue = "";
+
+      function generateCaptcha() {
+        let value = btoa(Math.random() * 1000000000);
+        value = value.substr(0, 5 + Math.random() * 5);
+        captchaValue = value;
+      }
+
+      function setCaptcha() {
+        let html = captchaValue.split("").map((char) => {
+          const rotate = -20 + Math.trunc(Math.random() * 40);
+          const font = Math.trunc(Math.random() * fonts.length);
+          return `<span style="transform:rotate(${rotate}deg); font-family:${fonts[font]}; margin:0 4px;">${char}</span>`;
+        }).join("");
+        document.querySelector(".preview").innerHTML = html;
+      }
+
+      function initCaptcha() {
+        document.querySelector(".captcha-refresh").addEventListener("click", function() {
+          generateCaptcha();
+          setCaptcha();
+        });
+        generateCaptcha();
+        setCaptcha();
+      }
+
+      document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+        const inputCaptchaValue = document.getElementById("captcha-input").value;
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        if (inputCaptchaValue !== captchaValue) {
+          alert("Invalid captcha");
+          return;
+        }
+
+        alert("Login Successful!");
+        window.location.href = "project.html";
+      });
+
+      initCaptcha();
+    })();
+  </script>
+
+</body>
+</html>

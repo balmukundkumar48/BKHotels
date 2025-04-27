@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Now - BK Hotel</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #2d3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeIn 2s ease;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 5px 10px;
+      transition: background 0.3s, border-radius 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: #6dd5ed;
+      border-radius: 5px;
+    }
+
+    #booking {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .booking-card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      transition: transform 0.3s ease;
+    }
+
+    .booking-card:hover {
+      transform: translateY(-10px);
+    }
+
+    #booking h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2d3e50;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    form input,
+    form select,
+    form textarea {
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+      border-color: #2193b0;
+      outline: none;
+    }
+
+    form input[type="date"] {
+      padding-left: 5px;
+    }
+
+    form button {
+      background: linear-gradient(45deg, #6dd5ed, #2193b0);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.4s, transform 0.2s;
+    }
+
+    form button:hover {
+      background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      transform: scale(1.05);
+    }
+
+    form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      .booking-card {
+        width: 90%;
+        padding: 20px;
+      }
+
+      form button {
+        font-size: 1em;
+        padding: 12px;
+      }
+    }
+
+    footer {
+      background-color: #2d3e50;
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 1em;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>BK Hotel</h1>
+    <nav>
+      <ul>
+        <li><a href="project.html">Home</a></li>
+        <li><a href="projectsignup.html">Sign Up</a></li>
+        <li><a href="projectlogin.html">Login</a></li>
+        <li><a href="booknow.html">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="booking">
+    <div class="booking-card">
+      <h2>Book Your Stay</h2>
+      <form id="bookingForm" action="submitBooking.php" method="POST">
+        <label for="room">Select Room:</label>
+        <select id="room" name="room" required>
+          <option value=""> Book Your Room </option> 
+          <option value="deluxe">Deluxe Room - $200 5 night 4 days</option>
+          <option value="standard">Standard Room - $150 5 night 4 days</option>
+          <option value="suite">Suite - $300 5 night 4 days</option>
+          <option value="Dormatory Room"> Dormatory Rooms - $ 50 5 night 4 days</option>
+          <option value="Maharaja Room"> Maharaja Room - $350 5 night 4 days </option>
+          <option value="Sahi Maharaja Room "> Sahi Maharaja Room - $500 5 night4 days</option>
+        </select>
+
+        <label for="checkin">Check-in Date:</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout">Check-out Date:</label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="specialRequest">Special Requests:</label>
+        <textarea id="specialRequest" name="specialRequest"></textarea>
+
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 BK Hotel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for internal links
+    const links = document.querySelectorAll('nav ul li a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith("#")) {
+          e.preventDefault();
+          const target = document.getElementById(href.substring(1));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Validate booking form dates
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', function(e) {
+      const checkinDate = document.getElementById('checkin').value;
+      const checkoutDate = document.getElementById('checkout').value;
+
+      if (new Date(checkoutDate) <= new Date(checkinDate)) {
+        alert('Check-out date must be after check-in date.');
+        e.preventDefault();
+      } else {
+        alert('Booking confirmed! We look forward to hosting you.');
+      }
+    });
+  </script>
+
+</body>
+</html>
